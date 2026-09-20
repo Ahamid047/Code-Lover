@@ -6,7 +6,8 @@ class Solution {
         for(int i = 0; i < n; i++){
             int end = intervals[i][1];
             for(int j = i + 1; j < n; j++){
-                if(intervals[j][0] <= end) count++;
+                int start = intervals[j][0];
+                if(start <= end) count++;
             }
         }
         
