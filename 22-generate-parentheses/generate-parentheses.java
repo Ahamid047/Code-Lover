@@ -1,3 +1,6 @@
+//T.C : O(2n* (2^(2n)) -> Removing constant -> O(n * (2^n))
+//S.C : O(2*n) -> Removing constant -> O(n) -> recursion stack space - Max depth of recusion tree
+
 class Solution {
     List<String> list = new ArrayList<>();
 
@@ -14,9 +17,12 @@ class Solution {
             }
             return;
         }
-        solve(n, curr + "(", length+1);
+        curr += '(';
+        solve(n, curr, length+1);
+        curr = curr.substring(0, curr.length() - 1);
 
-        solve(n, curr + ")", length+1);
+        curr += ')';
+        solve(n, curr, length+1);
     }
 
     private boolean isValid(String s){
