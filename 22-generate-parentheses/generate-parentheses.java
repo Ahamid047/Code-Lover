@@ -1,31 +1,36 @@
-// Approach-2 (Smart Recursion)
-//T.C : O(2^n)
-//S.C : O(2*n) -> Removing constant -> O(n) -> recursion stack space - Max depth of recusion tree
-
 class Solution {
-    List<String> list = new ArrayList<>();
-
     public List<String> generateParenthesis(int n) {
-
-        solve(n, "", 0, 0);
+        List<String> list = new ArrayList<>();
+        solve("", n, list);
         return list;
     }
 
-    private void solve(int n, String curr, int open, int close) {
-        if (curr.length() == 2 * n) {
-            list.add(curr);
+    private void solve(String s, int n, List<String> list) {
+        if (s.length() == n * 2) {
+            if (isValid(s)) {
+                list.add(s);
+            }
             return;
         }
-        if (open < n) {
-            curr += '(';
-            solve(n, curr, open + 1, close);
-            curr = curr.substring(0, curr.length() - 1);
-        }
 
-        if (close < open) {
-            curr += ')';
-            solve(n, curr, open, close + 1);
-            curr = curr.substring(0, curr.length() - 1);
+        solve(s + "(", n, list);
+        solve(s + ")", n, list);
+
+    }
+
+    private boolean isValid(String str) {
+        int n = str.length();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            char ch = str.charAt(i);
+            if (ch == '(') {
+                count++;
+            } else {
+                count--;
+            }
+            if (count < 0)
+                return false;
         }
+        return count == 0;
     }
 }
