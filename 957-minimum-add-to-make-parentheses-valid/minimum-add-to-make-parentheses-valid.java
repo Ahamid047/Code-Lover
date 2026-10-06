@@ -1,7 +1,7 @@
 class Solution {
     public int minAddToMakeValid(String s) {
         int n = s.length();
-        int count = 0;
+        int close = 0;
         int open = 0;
 
         for(int i =0; i < n; i++){
@@ -10,12 +10,12 @@ class Solution {
                 open ++;
             }else{
                 if(open == 0){
-                    count++;
+                    close++;
                 }else{
                     open--;
                 }
             }
         }
-        return open + count;
+        return open + close;
     }
 }
