@@ -1,5 +1,8 @@
 class Solution {
     public int theMaximumAchievableX(int num, int t) {
-        return num + (2*t);
+        for(int i=0; i<t; i++){
+            num += 2;
+        }
+        return num;
     }
 }
