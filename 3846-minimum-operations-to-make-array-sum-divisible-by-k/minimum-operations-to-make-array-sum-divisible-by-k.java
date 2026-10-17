@@ -5,14 +5,6 @@ class Solution {
         for(int num : nums){
             sum += num;
         }
-        if(sum % k == 0){
-            return 0;
-        }else{
-            while((sum > 0) && !(sum % k == 0)){
-                sum --;
-                ans ++;
-            }
-        }
-        return ans;
+        return sum % k;
     }
 }
