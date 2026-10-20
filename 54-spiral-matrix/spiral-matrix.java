@@ -10,16 +10,19 @@ class Solution {
         int bottom = m -1;
 
         while(top <= bottom && left <= right){
+            // Traversing from left to right
             for(int j = left; j<= right; j++){
                 list.add(matrix[top][j]);
             }
             top++;
 
+            //Traversing from top to bottom
             for(int i = top; i <= bottom; i++){
                 list.add(matrix[i][right]);
             }
             right--;
 
+            // Traverse from right to left
             if(top <= bottom){
                 for(int j = right ; j >= left; j--){
                     list.add(matrix[bottom][j]);
@@ -27,6 +30,7 @@ class Solution {
                 bottom --;
             }
 
+            //Traverse from bottom to top
             if(left <= right){
                 for(int i = bottom; i>= top; i--){
                     list.add(matrix[i][left]);
@@ -34,7 +38,6 @@ class Solution {
                 left++;
             }
         }
-
         return list;
     }
 }
