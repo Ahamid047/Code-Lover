@@ -1,6 +1,8 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer>list = new ArrayList<>();
+
+        if(matrix == null || matrix.length == 0)return list;
         int m = matrix.length;
         int n = matrix[0].length;
 
