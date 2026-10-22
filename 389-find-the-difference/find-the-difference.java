@@ -4,13 +4,15 @@ class Solution {
         int sum2 =0;
         int n = s.length();
         for(int i =0; i<n; i++){
-            sum += s.charAt(i);
+            char ch = s.charAt(i);
+            sum += ch-'a';
         }
 
         for(int i =0; i<t.length(); i++){
-            sum2 += t.charAt(i);
+           char ch = t.charAt(i);
+            sum2 += ch-'a';
         }
 
-        return (char)(sum2-sum);
+        return (char)(sum2-sum + 'a');
     }
 }
